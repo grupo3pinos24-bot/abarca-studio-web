@@ -1,9 +1,9 @@
-# ROADMAP — abarca-studio-web
+﻿# ROADMAP — abarca-studio-web
 
 ## Pendientes inmediatos
 - [x] CTA único definido — WhatsApp directo
-- [x] Número de WhatsApp configurado (523541356258 — confirmar si es el correcto antes de publicar)
-- [ ] Confirmar que el número de WhatsApp es el de Abarca² Studio (no el de un delegado/cliente)
+- [x] Número de WhatsApp configurado (523541356258)
+- [x] Número de WhatsApp confirmado — número personal del usuario, atendido directamente
 - [ ] Revisar y ajustar copy con tono real del equipo
 - [ ] Probar botón de WhatsApp en mobile y desktop
 - [ ] Publicar (Netlify drop o conectar repo)
