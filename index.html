@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tres Pinos ERP — Abarca² Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:        #F2EDE1;
+    --paper-dim:     #E9E2D2;
+    --ink:           #1C2B33;
+    --ink-soft:      #41555E;
+    --stamp:         #A23B2E;
+    --line:          #B8AD96;
+    --green:         #5C7A6B;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Lora', serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* textura de papel sutil */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(28,43,51,0.025) 28px);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{ max-width:880px; margin:0 auto; padding:0 28px; position:relative; z-index:1; }
+
+  .eyebrow{
+    font-family:'Courier Prime', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  a{ color:inherit; }
+
+  /* ---------- HEADER ---------- */
+  header{
+    padding:28px 0 0;
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding-bottom:20px;
+  }
+  .brand{
+    font-family:'Courier Prime', monospace;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:0.05em;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:90px 0 70px;
+    position:relative;
+  }
+  .hero h1{
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-style:italic;
+    font-size:clamp(34px, 5vw, 54px);
+    line-height:1.18;
+    max-width:680px;
+    margin:18px 0 26px;
+    color:var(--ink);
+  }
+  .hero p.lead{
+    max-width:520px;
+    font-size:18px;
+    color:var(--ink-soft);
+    margin-bottom:40px;
+  }
+
+  /* sello */
+  .stamp{
+    position:absolute;
+    top:60px; right:28px;
+    width:128px; height:128px;
+    border:3px double var(--stamp);
+    border-radius:50%;
+    color:var(--stamp);
+    transform:rotate(-9deg);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    font-family:'Courier Prime', monospace;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    mix-blend-mode:multiply;
+    opacity:0.88;
+  }
+  .stamp span{ display:block; line-height:1.5; }
+
+  @media (max-width: 640px){
+    .stamp{ display:none; }
+  }
+
+  /* ---------- CTA BUTTON ---------- */
+  .btn-whatsapp{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Courier Prime', monospace;
+    font-size:14px;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    padding:16px 26px;
+    border:1px solid var(--ink);
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+  .btn-whatsapp:hover{ background:var(--green); border-color:var(--green); }
+  .btn-whatsapp:focus-visible{ outline:2px solid var(--stamp); outline-offset:3px; }
+  .btn-whatsapp svg{ width:18px; height:18px; flex-shrink:0; }
+
+  /* ---------- PROBLEMA ---------- */
+  .section{
+    padding:64px 0;
+    border-top:1px solid var(--line);
+  }
+  .section h2{
+    font-family:'Courier Prime', monospace;
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:28px;
+  }
+
+  .ledger-row{
+    display:grid;
+    grid-template-columns:28px 1fr;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+    align-items:start;
+  }
+  .ledger-row:first-of-type{ border-top:1px solid var(--line); }
+  .ledger-row .mark{
+    font-family:'Courier Prime', monospace;
+    color:var(--stamp);
+    font-size:15px;
+  }
+  .ledger-row p{ font-size:16px; color:var(--ink); }
+  .ledger-row p strong{ font-style:normal; }
+
+  /* ---------- PRUEBA SOCIAL ---------- */
+  .proof{
+    background:var(--paper-dim);
+  }
+  .proof-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+    margin-top:8px;
+  }
+  @media (max-width:640px){ .proof-grid{ grid-template-columns:1fr; } }
+
+  .proof-card{
+    border:1px solid var(--line);
+    padding:24px;
+    background:var(--paper);
+  }
+  .proof-card .label{
+    font-family:'Courier Prime', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--stamp);
+    margin-bottom:10px;
+  }
+  .proof-card h3{
+    font-family:'Lora', serif;
+    font-size:20px;
+    margin-bottom:10px;
+  }
+  .proof-card p{ font-size:15px; color:var(--ink-soft); }
+
+  .proof-note{
+    margin-top:28px;
+    font-size:15px;
+    color:var(--ink-soft);
+    font-style:italic;
+    max-width:560px;
+  }
+
+  /* ---------- CTA FINAL ---------- */
+  .cta-final{
+    text-align:left;
+  }
+  .cta-final h2.big{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:clamp(26px, 4vw, 36px);
+    color:var(--ink);
+    text-transform:none;
+    letter-spacing:normal;
+    margin-bottom:18px;
+    max-width:560px;
+  }
+  .cta-final p{ color:var(--ink-soft); max-width:500px; margin-bottom:30px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0 48px;
+    font-family:'Courier Prime', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  /* ---------- WHATSAPP FLOTANTE ---------- */
+  .floating-wa{
+    position:fixed;
+    bottom:22px; right:22px;
+    width:56px; height:56px;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none;
+    box-shadow:0 4px 14px rgba(28,43,51,0.3);
+    z-index:10;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .floating-wa:hover{ background:var(--green); transform:translateY(-2px); }
+  .floating-wa:focus-visible{ outline:2px solid var(--stamp); outline-offset:3px; }
+  .floating-wa svg{ width:26px; height:26px; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .floating-wa, .btn-whatsapp{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">ABARCA² STUDIO</div>
+    <div class="eyebrow">Tres Pinos ERP</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="stamp"><span>REGISTRO<br>AL DÍA</span></div>
+    <p class="eyebrow">Sistema de registro para centros</p>
+    <h1>El registro de tu centro, sin un solo papel perdido.</h1>
+    <p class="lead">
+      Tres Pinos ERP lleva el control de ingresos, mensualidades y seguimiento
+      de tu centro en un solo lugar — pensado para la forma en que ya trabajas,
+      no al revés.
+    </p>
+    <a class="btn-whatsapp" href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20vi%20Tres%20Pinos%20ERP%20y%20quiero%20saber%20m%C3%A1s" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.41-1.42a9.86 9.86 0 0 0 4.63 1.18h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm0 17.93c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.02 8.02 0 0 1-1.23-4.26c0-4.43 3.6-8.03 8.03-8.03 4.43 0 8.03 3.6 8.03 8.03 0 4.43-3.6 8.02-8.04 8.12z"/></svg>
+      Escríbenos por WhatsApp
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Lo que se resuelve</h2>
+    <div class="ledger-row">
+      <span class="mark">—</span>
+      <p>Hojas de registro que se pierden, se mojan o se traspapelan entre turnos.</p>
+    </div>
+    <div class="ledger-row">
+      <span class="mark">—</span>
+      <p>Mensualidades que nadie sabe quién pagó ni cuándo.</p>
+    </div>
+    <div class="ledger-row">
+      <span class="mark">—</span>
+      <p>Historial del centro que vive en la memoria de una sola persona, no en un sistema.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section proof">
+  <div class="wrap">
+    <h2>En uso real, hoy</h2>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="label">Centro Tres Pinos · Tingüindín</div>
+        <h3>Tinguindín</h3>
+        <p>Registro diario y control de datos reales del centro, operando con Tres Pinos ERP.</p>
+      </div>
+      <div class="proof-card">
+        <div class="label">Centro Tres Pinos · Santa Clara</div>
+        <h3>Santa Clara</h3>
+        <p>Mismo sistema, mismo flujo de trabajo — adoptado por el equipo de dirección del centro.</p>
+      </div>
+    </div>
+    <p class="proof-note">
+      No es una propuesta ni un prototipo: es lo que ya está funcionando
+      en dos centros, todos los días.
+    </p>
+  </div>
+</section>
+
+<section class="section cta-final">
+  <div class="wrap">
+    <h2 class="big">¿Tu centro lleva el registro así, o todavía en papel?</h2>
+    <p>
+      Cuéntanos cómo lo hacen hoy y te mostramos cómo se ve resuelto.
+      Sin compromiso, una conversación de cinco minutos.
+    </p>
+    <a class="btn-whatsapp" href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20vi%20Tres%20Pinos%20ERP%20y%20quiero%20saber%20m%C3%A1s" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.41-1.42a9.86 9.86 0 0 0 4.63 1.18h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm0 17.93c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.02 8.02 0 0 1-1.23-4.26c0-4.43 3.6-8.03 8.03-8.03 4.43 0 8.03 3.6 8.03 8.03 0 4.43-3.6 8.02-8.04 8.12z"/></svg>
+      Escríbenos por WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:8px;">
+    <span>Abarca² Studio — Tres Pinos ERP</span>
+    <span>2026</span>
+  </div>
+</footer>
+
+<a class="floating-wa" href="https://wa.me/52XXXXXXXXXX?text=Hola%2C%20vi%20Tres%20Pinos%20ERP%20y%20quiero%20saber%20m%C3%A1s" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.41-1.42a9.86 9.86 0 0 0 4.63 1.18h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm0 17.93c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.02 8.02 0 0 1-1.23-4.26c0-4.43 3.6-8.03 8.03-8.03 4.43 0 8.03 3.6 8.03 8.03 0 4.43-3.6 8.02-8.04 8.12z"/></svg>
+</a>
+
+</body>
+</html>
