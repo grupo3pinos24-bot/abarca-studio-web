@@ -18,7 +18,6 @@
   }
 
   *{ box-sizing:border-box; margin:0; padding:0; }
-
   html{ scroll-behavior:smooth; }
 
   body{
@@ -29,7 +28,6 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  /* textura de papel sutil */
   body::before{
     content:"";
     position:fixed; inset:0;
@@ -67,6 +65,44 @@
     letter-spacing:0.05em;
   }
 
+  /* ---------- REFORMA BANNER ---------- */
+  .reforma-banner{
+    background:var(--ink);
+    color:var(--paper);
+    padding:14px 0;
+  }
+  .reforma-banner .wrap{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .reforma-banner .tag{
+    font-family:'Courier Prime', monospace;
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--stamp);
+    flex-shrink:0;
+  }
+  .reforma-banner p{
+    font-family:'Courier Prime', monospace;
+    font-size:13px;
+    color:var(--paper);
+    opacity:0.88;
+  }
+  .reforma-banner a{
+    color:var(--paper);
+    opacity:0.6;
+    font-size:12px;
+    text-decoration:underline;
+    white-space:nowrap;
+    margin-left:auto;
+  }
+  @media(max-width:640px){
+    .reforma-banner a{ margin-left:0; }
+  }
+
   /* ---------- HERO ---------- */
   .hero{
     padding:90px 0 70px;
@@ -89,7 +125,6 @@
     margin-bottom:40px;
   }
 
-  /* sello */
   .stamp{
     position:absolute;
     top:60px; right:28px;
@@ -133,7 +168,7 @@
   .btn-whatsapp:focus-visible{ outline:2px solid var(--stamp); outline-offset:3px; }
   .btn-whatsapp svg{ width:18px; height:18px; flex-shrink:0; }
 
-  /* ---------- PROBLEMA ---------- */
+  /* ---------- SECCIONES ---------- */
   .section{
     padding:64px 0;
     border-top:1px solid var(--line);
@@ -162,12 +197,9 @@
     font-size:15px;
   }
   .ledger-row p{ font-size:16px; color:var(--ink); }
-  .ledger-row p strong{ font-style:normal; }
 
   /* ---------- PRUEBA SOCIAL ---------- */
-  .proof{
-    background:var(--paper-dim);
-  }
+  .proof{ background:var(--paper-dim); }
   .proof-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -204,10 +236,36 @@
     max-width:560px;
   }
 
-  /* ---------- CTA FINAL ---------- */
-  .cta-final{
-    text-align:left;
+  /* ---------- PRECIO ---------- */
+  .precio-line{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-top:28px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
   }
+  .precio-amount{
+    font-family:'Courier Prime', monospace;
+    font-size:28px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .precio-desc{
+    font-family:'Courier Prime', monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+    letter-spacing:0.04em;
+  }
+  .precio-nota{
+    font-size:13px;
+    color:var(--ink-soft);
+    font-style:italic;
+    margin-top:10px;
+  }
+
+  /* ---------- CTA FINAL ---------- */
+  .cta-final{ text-align:left; }
   .cta-final h2.big{
     font-family:'Lora', serif;
     font-style:italic;
@@ -267,13 +325,21 @@
   </div>
 </header>
 
+<div class="reforma-banner">
+  <div class="wrap">
+    <span class="tag">Reforma Jun 2026</span>
+    <p>El Congreso de Michoacán aprobó por unanimidad el Padrón Estatal de Centros de Adicciones — registro sistematizado obligatorio.</p>
+    <a href="https://www.lavozdemichoacan.com.mx/michoacan/congreso/congreso-michoacan-76-legislatura-reforma-ley-de-salud-centros-de-adicciones-anexos-padron-estatal/" target="_blank" rel="noopener">Ver decreto</a>
+  </div>
+</div>
+
 <section class="hero">
   <div class="wrap">
     <div class="stamp"><span>REGISTRO<br>AL DÍA</span></div>
     <p class="eyebrow">Sistema de registro para centros</p>
     <h1>El registro de tu centro, sin un solo papel perdido.</h1>
     <p class="lead">
-      Tres Pinos ERP lleva el control de ingresos, mensualidades y seguimiento
+      Tres Pinos ERP lleva el control de internos, mensualidades y seguimiento
       de tu centro en un solo lugar — pensado para la forma en que ya trabajas,
       no al revés.
     </p>
@@ -298,6 +364,10 @@
     <div class="ledger-row">
       <span class="mark">—</span>
       <p>Historial del centro que vive en la memoria de una sola persona, no en un sistema.</p>
+    </div>
+    <div class="ledger-row">
+      <span class="mark">—</span>
+      <p>Cumplimiento con el nuevo padrón estatal — altas, egresos y servicios sistematizados desde el primer día.</p>
     </div>
   </div>
 </section>
@@ -335,6 +405,11 @@
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.41-1.42a9.86 9.86 0 0 0 4.63 1.18h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm0 17.93c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.02 8.02 0 0 1-1.23-4.26c0-4.43 3.6-8.03 8.03-8.03 4.43 0 8.03 3.6 8.03 8.03 0 4.43-3.6 8.02-8.04 8.12z"/></svg>
       Escríbenos por WhatsApp
     </a>
+    <div class="precio-line">
+      <span class="precio-amount">$500 MXN</span>
+      <span class="precio-desc">/ mes por centro</span>
+    </div>
+    <p class="precio-nota">Precio fundador para los primeros 10 centros. Incluye configuración inicial y soporte directo.</p>
   </div>
 </section>
 
