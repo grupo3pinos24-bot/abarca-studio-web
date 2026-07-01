@@ -145,9 +145,7 @@
   }
   .stamp span{ display:block; line-height:1.5; }
 
-  @media (max-width: 640px){
-    .stamp{ display:none; }
-  }
+  @media (max-width: 640px){ .stamp{ display:none; } }
 
   /* ---------- CTA BUTTON ---------- */
   .btn-whatsapp{
@@ -197,6 +195,62 @@
     font-size:15px;
   }
   .ledger-row p{ font-size:16px; color:var(--ink); }
+
+  /* ---------- MODULOS ---------- */
+  .modulos-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    margin-top:8px;
+    border:1px solid var(--line);
+  }
+  @media(max-width:640px){ .modulos-grid{ grid-template-columns:1fr; } }
+
+  .modulo-item{
+    padding:16px 20px;
+    border-bottom:1px solid var(--line);
+    border-right:1px solid var(--line);
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+  }
+  .modulo-item:nth-child(even){ border-right:none; }
+  @media(max-width:640px){
+    .modulo-item{ border-right:none; }
+  }
+  .modulo-item .mod-tag{
+    font-family:'Courier Prime', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--stamp);
+    flex-shrink:0;
+    min-width:90px;
+  }
+  .modulo-item p{ font-size:14px; color:var(--ink-soft); }
+
+  /* ---------- PRIMERA SESION ---------- */
+  .primera-sesion{
+    margin-top:36px;
+    padding:24px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .primera-sesion .ps-titulo{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--ink);
+    flex-shrink:0;
+  }
+  .primera-sesion .ps-desc{
+    font-size:14px;
+    color:var(--ink-soft);
+  }
 
   /* ---------- PRUEBA SOCIAL ---------- */
   .proof{ background:var(--paper-dim); }
@@ -262,6 +316,28 @@
     color:var(--ink-soft);
     font-style:italic;
     margin-top:10px;
+  }
+
+  /* ---------- SEGURIDAD ---------- */
+  .seguridad-line{
+    margin-top:20px;
+    padding:16px 20px;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+  }
+  .seguridad-line .seg-tag{
+    font-family:'Courier Prime', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    flex-shrink:0;
+  }
+  .seguridad-line p{
+    font-size:13px;
+    color:var(--ink-soft);
   }
 
   /* ---------- CTA FINAL ---------- */
@@ -372,6 +448,42 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="wrap">
+    <h2>Qué incluye</h2>
+    <div class="modulos-grid">
+      <div class="modulo-item">
+        <span class="mod-tag">Internos</span>
+        <p>Alta, egreso, perfil y seguimiento de cada residente.</p>
+      </div>
+      <div class="modulo-item">
+        <span class="mod-tag">Pagos</span>
+        <p>Registro semanal de mensualidades con folio y trazabilidad.</p>
+      </div>
+      <div class="modulo-item">
+        <span class="mod-tag">Fichas</span>
+        <p>Ingreso, gasolina y servicios con folio de talonario físico.</p>
+      </div>
+      <div class="modulo-item">
+        <span class="mod-tag">Corte</span>
+        <p>Resumen semanal de cobrado, gastos y utilidad neta.</p>
+      </div>
+      <div class="modulo-item">
+        <span class="mod-tag">Historial</span>
+        <p>Registro completo de movimientos por interno y por fecha.</p>
+      </div>
+      <div class="modulo-item">
+        <span class="mod-tag">Acceso</span>
+        <p>Roles diferenciados: responsable por sucursal y padrino con acceso total.</p>
+      </div>
+    </div>
+    <div class="primera-sesion">
+      <span class="ps-titulo">Tu centro empieza a registrar en la primera sesión.</span>
+      <span class="ps-desc">Sin instalaciones, sin capacitación larga. Solo un teléfono y acceso a internet.</span>
+    </div>
+  </div>
+</section>
+
 <section class="section proof">
   <div class="wrap">
     <h2>En uso real, hoy</h2>
@@ -410,6 +522,10 @@
       <span class="precio-desc">/ mes por centro</span>
     </div>
     <p class="precio-nota">Precio fundador para los primeros 10 centros. Incluye configuración inicial y soporte directo.</p>
+    <div class="seguridad-line">
+      <span class="seg-tag">Privacidad</span>
+      <p>Los datos de tus internos son privados y solo accesibles para tu equipo. Acceso protegido por roles y contraseña, alojado en servidores seguros de Google Firebase.</p>
+    </div>
   </div>
 </section>
 

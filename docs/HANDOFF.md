@@ -1,55 +1,90 @@
 # HANDOFF.md — abarca-studio-web
-> Última actualización: 30 Jun 2026
+> Última actualización: 30 Jun 2026 | Abarca² Studio
 
-## Propósito
-Documento de traspaso técnico: estado actual del proyecto, decisiones tomadas,
-y qué necesita saber alguien que retome el trabajo (incluyendo Claude en una
-sesión nueva). Separado de ROADMAP.md (pendientes/tareas) y de VENTAS.md
-(que vive en tres-pinos-admin/docs — no se duplica aquí).
+## Primer comando
+Sin build — clic derecho en index.html → "Open with Live Server" (VS Code)
 
 ---
 
-## Qué es este proyecto
-Landing page de una sola página para Abarca² Studio, con el objetivo de dar
-soporte al outreach comercial de Tres Pinos ERP (ver tres-pinos-admin/docs/VENTAS.md).
-CTA único: contacto directo por WhatsApp. Sin backend, sin build step — HTML/CSS puro.
+## DIRECTIVAS
+1. Solo PowerShell — un comando a la vez, sin &&
+2. Edición de texto con acentos/símbolos especiales (á é í ó ú ñ — ²) SIEMPRE en el
+   editor de VS Code — NUNCA pegado directo en la terminal de PowerShell. Causa
+   corrupción de encoding silenciosa (incidente real 30 Jun 2026, ver Bugs resueltos).
+3. Si es indispensable escribir texto con acentos desde PowerShell: usar heredoc
+   @"..."@ con Out-File -Encoding utf8. NUNCA Get-Content sin -Encoding UTF8
+   explícito tanto en lectura como en escritura — la falta de uno solo corrompe el archivo.
+4. Confirmar antes de republicar a Netlify — sobrescribe la versión en producción
+   sin aviso ni rollback automático.
+5. Método Elon: causa raíz antes de parchear.
+6. Kaizen: mejora incremental visible cada sesión.
+7. Netlify Drop NO se actualiza solo con git push — hay que volver a arrastrar la
+   carpeta manualmente a app.netlify.com/drop tras cada cambio que deba reflejarse
+   en producción. git y el sitio en línea están desacoplados hasta que se conecte
+   el repo directo a Netlify (ver Backlog).
 
-## Stack y estructura
-- `index.html` — página completa (HTML + CSS inline, sin dependencias externas
-  salvo Google Fonts vía CDN: Courier Prime + Lora)
-- Sin framework, sin npm, sin build — se edita y se sirve directo
-- Repo de git separado de `tres-pinos-admin` (decisión intencional — ver
-  sección "Decisiones" abajo)
+---
 
-## Estado actual (30 Jun 2026)
-- Diseño y copy inicial completos
-- CTA de WhatsApp configurado con número personal del usuario (atendido
-  directamente, no es número del centro Tres Pinos ni de terceros)
-- Repo de git inicializado localmente, con commits locales — **aún no
-  conectado a GitHub ni publicado**
-- Carpeta `docs/` con README.md, ROADMAP.md, HANDOFF.md (este archivo)
+## Stack
+HTML + CSS puro — sin build, sin framework, sin Node, sin dependencias instaladas
+Fuentes: Google Fonts CDN (Courier Prime + Lora)
+Repo: local únicamente — aún no conectado a GitHub
+Rama: master | Path: C:\Users\G3P\abarca-studio-web
+Hosting: Netlify (deploy manual vía Drop) — https://abarca2-studio.netlify.app
 
-## Decisiones clave
-1. **Repo separado de tres-pinos-admin.** Son proyectos distintos (ERP vs.
-   marketing) — se evita mezclar código, historial de git, y dependencias.
-2. **VENTAS.md no se duplica aquí.** Sigue viviendo en
-   `tres-pinos-admin/docs/VENTAS.md` como single source of truth del pipeline
-   comercial. Esta web no necesita leerlo para funcionar.
-3. **Sin framework.** Página estática simple — no se justifica complejidad
-   adicional (React, build tools) para una sola página con un solo CTA.
-4. **Diseño con identidad propia.** Estética de "registro/ledger" (sello,
-   tipografía de máquina de escribir) en vez de plantilla genérica de SaaS —
-   intencional, conecta con el problema real que resuelve Tres Pinos ERP.
+---
 
-## Pendiente antes de publicar
-Ver `docs/ROADMAP.md` para la lista completa. Bloqueante principal: aún no
-está publicado (falta Netlify Drop o conexión a GitHub + hosting).
+## Módulos completados
 
-## Cómo retomar el trabajo
-1. Abrir la carpeta `abarca-studio-web` en su propia ventana de VS Code
-   (no mezclar con tres-pinos-admin)
-2. Live Server para ver cambios en vivo
-3. Editar `index.html` directo en el editor — **nunca pegar texto con acentos
-   o símbolos especiales en PowerShell** (causa corrupción de encoding; ya
-   pasó una vez con ROADMAP.md). Editar siempre desde el editor de VS Code.
-4. Commits con `git add . && git commit -m "..."` desde la terminal integrada
+| Módulo | Notas |
+|--------|-------|
+| Hero + CTA principal | WhatsApp directo, número confirmado 523541356258 |
+| Sección "Lo que se resuelve" | 3 puntos, estilo ledger/registro |
+| Prueba social | Tinguindín + Santa Clara — solo hechos verificables, sin testimonios inventados |
+| CTA final + WhatsApp flotante | mismo número, mismo mensaje precargado |
+| Deploy inicial | Netlify Drop, sitio reclamado en cuenta, nombre cambiado a abarca2-studio |
+
+---
+
+## Bugs resueltos
+- **30 Jun 2026** — ROADMAP.md corrupción de encoding (Ã©, â€”) al leer/escribir vía
+  PowerShell sin -Encoding UTF8 explícito. Resuelto reescribiendo con heredoc
+  @"..."@ + Out-File -Encoding utf8.
+- **30 Jun 2026** — index.html publicado con placeholder de WhatsApp (52XXXXXXXXXX)
+  sin reemplazar en producción. El fix se hizo en local/git pero no se reflejó
+  porque Netlify Drop no jala de git automáticamente (ver Directiva 7). Resuelto
+  corrigiendo el archivo local y re-arrastrando la carpeta a Netlify Drop.
+
+---
+
+## Backlog activo
+
+| # | Feature | Estado |
+|---|---------|--------|
+| 1 | Conectar repo local a GitHub | pendiente |
+| 2 | Conectar GitHub → Netlify (deploys automáticos con git push) | pendiente |
+| 3 | Revisar copy con tono real del equipo | pendiente |
+| 4 | Probar botón de WhatsApp en mobile real | pendiente |
+| 5 | Tracking básico de visitas/clics al CTA | pendiente |
+| 6 | Dominio propio (ej. abarcastudio.com) | futuro |
+| 7 | Más casos de éxito conforme se sumen clientes | futuro |
+
+---
+
+## Reglas de negocio / decisiones
+- VENTAS.md NO se duplica aquí — vive únicamente en tres-pinos-admin/docs/VENTAS.md
+  (single source of truth del pipeline comercial)
+- Repo separado de tres-pinos-admin de forma intencional — no mezclar ERP con marketing
+- Sin framework — página de una sola pantalla con un solo CTA, no se justifica
+  complejidad adicional (React, build tools)
+- WhatsApp es número personal del usuario, atendido directamente — no es el
+  centro Tres Pinos ni un tercero
+
+---
+
+## Siguiente sesión
+1. Conectar repo local a GitHub (crear repo vacío, git remote add origin, git push)
+2. Conectar GitHub a Netlify para deploys automáticos
+3. Revisar copy con tono real del equipo
+4. Probar botón de WhatsApp en celular real
+5. Evaluar dominio propio
