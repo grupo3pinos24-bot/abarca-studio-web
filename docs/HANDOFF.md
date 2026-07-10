@@ -136,3 +136,58 @@ emoción como respaldo racional, y "tranquilidad" pasó a ser el eje central.
    de investigación, que queda en este HANDOFF).
 3. Confirmar antes de push a master (Directiva 4/8 — deploy automático).
 4. Retomar backlog #8 (estrategia de gobierno) cuando el usuario lo indique.
+
+---
+
+## Sesión 10 Jul 2026 (cont.) — Aplicación del copy final y deploy a producción
+
+### Ajustes de última hora antes de aplicar
+- Precio fundador: cambiado de "primeros 100 centros" a **"primeros 20
+  centros"** — decisión final del usuario, justificada con criterio de
+  neuroventas: un número específico y no redondo (ni 10, ni 50, ni 100)
+  es más creíble para el cerebro que una cifra típica de marketing, y
+  mantiene el instinto de escasez activo sin sonar a truco.
+- CTA final: unificado en un solo mensaje que combina la escena emocional
+  (vacaciones) con la escasez del precio fundador, en vez de presentarlos
+  por separado — criterio Klarić: emoción y urgencia deben decirse en la
+  misma respiración en el momento de cierre.
+
+### Cambios aplicados a index.html
+- H1 + lead: escena de vacaciones ("vete de vacaciones, tu centro sigue
+  en orden aunque no estés viendo la pantalla").
+- Testimonio del padrino: agregado sin nombre, atribuido como
+  "— Dueño, Tres Pinos".
+- Orden de secciones: Hero → Testimonio → Qué incluye → Lo que se resuelve
+  (con cierre de escenas concretas de tranquilidad) → En uso real → CTA
+  final.
+- Retirado del render: banner de reforma (Michoacán) y sección
+  panorama-nacional completa, incluido el punto "Cumplimiento con el
+  padrón estatal" dentro de "Lo que se resuelve". El dato de investigación
+  de Edomex/Coprisem sigue documentado en la sesión 1 Jul 2026 de este
+  archivo, sin pérdida de información, listo para cuando se retome
+  backlog #8.
+- Precio actualizado: $800 MXN/mes, primeros 20 centros fundadores.
+
+### Deploy
+- Commit `8535463` — "feat: rediseno de copy con enfoque neuroventas -
+  tranquilidad" — 1 archivo modificado (index.html), 57 inserciones,
+  51 eliminaciones.
+- Push a `master` exitoso (`bd72ed0..8535463`), deploy automático vía
+  Netlify (Directiva 8).
+- Verificado en producción (https://abarca2-studio.netlify.app): copy
+  nuevo confirmado en vivo — hero, testimonio, orden de secciones, precio
+  y ausencia del bloque de gobierno, todo correcto. Sin caracteres
+  corruptos.
+
+### Estado
+- Backlog activo #3 ("Revisar copy con tono real del equipo") →
+  **resuelto**.
+- Layout roto de `panorama-nacional` (pendiente desde 1 Jul 2026) → deja
+  de ser bloqueante porque la sección ya no está en el render actual;
+  sigue pendiente si se reincorpora el ángulo de gobierno más adelante.
+
+### Siguiente sesión
+1. Retomar backlog #8 (estrategia de gobierno/Coepris) cuando el usuario
+   lo indique — dato de Edomex ya redactado y disponible.
+2. Evaluar dominio propio (sigue en "futuro", sin cambios).
+3. Sumar más casos de éxito conforme se sumen centros fundadores.
