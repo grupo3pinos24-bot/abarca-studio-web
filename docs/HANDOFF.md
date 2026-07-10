@@ -88,3 +88,51 @@ Hosting: Netlify (deploy manual vía Drop) — https://abarca2-studio.netlify.ap
 3. Revisar copy con tono real del equipo
 4. Probar botón de WhatsApp en celular real
 5. Evaluar dominio propio
+---
+
+## Sesión 10 Jul 2026 — Estrategia de copy: neuroventas / "Véndele a la mente, no a la gente"
+
+### Contexto
+Se rediseñó el copy del sitio con el marco de neuroventas (Jürgen Klarić),
+disparado por una reacción real del padrino al ver la aplicación:
+"eso para mí genera tranquilidad". Se identificó que el copy anterior lideraba
+con miedo/urgencia regulatoria como emoción principal — se reposicionó esa
+emoción como respaldo racional, y "tranquilidad" pasó a ser el eje central.
+
+### Decisiones de copy (texto final acordado, pendiente de aplicar a index.html)
+- H1 nuevo: enfoque en escena concreta ("vete de vacaciones, tu centro sigue
+  en orden") en vez del concepto abstracto de tranquilidad — el cerebro
+  reacciona mejor a imágenes visualizables que a conceptos sueltos.
+- Testimonio del padrino: se incluye SIN nombre — atribuido como
+  "Dueño, Tres Pinos". Decisión explícita del usuario para evitar exponer
+  el nombre real; también resuelve el pendiente de consentimiento.
+- Orden de secciones cambiado: Hero (emocional) → Testimonio → Qué incluye
+  (racional/tangible primero) → Lo que se resuelve (dolor + cierre emocional)
+  → En uso real → CTA final. Se decidió mostrar "Qué incluye" antes de
+  "Lo que se resuelve" por ser más claro para el lector.
+- Sección de gobierno/regulación (banner de reforma + panorama-nacional):
+  POSPUESTA Y RETIRADA del copy actual por decisión del usuario. No se
+  borra el trabajo de investigación previo (dato Edomex, Coprisem, 53
+  centros clausurados) — queda documentado en la sesión 1 Jul 2026 de este
+  mismo archivo para retomar cuando se decida reincorporar el ángulo.
+- Precio actualizado: $800 MXN/mes por centro (antes $500).
+- Precio fundador: "primeros 100 centros" (antes "primeros 10"). Nota de
+  Claude entregada al usuario: cambia el instinto que dispara el mensaje
+  (urgencia/escasez con 10 vs. estabilidad/precio de lista con 100) —
+  decisión del usuario, no revertida.
+
+### Estado
+- Texto final acordado en chat, NO aplicado aún a index.html — el usuario
+  pidió explícitamente no regenerar el archivo hasta nueva confirmación.
+- Backlog activo #3 ("Revisar copy con tono real del equipo") se da por
+  cubierto en cuanto se aplique este texto al archivo real.
+
+### Siguiente sesión
+1. Usuario confirma si el CTA final ("¿puedes irte de vacaciones sin
+   cargar tu centro contigo?") representa bien al cliente objetivo.
+2. Aplicar el texto acordado a index.html (hero, testimonio, orden de
+   secciones, precio, CTA final) — reemplaza el contenido actual, retira
+   banner de reforma y panorama-nacional del render (sin borrar el dato
+   de investigación, que queda en este HANDOFF).
+3. Confirmar antes de push a master (Directiva 4/8 — deploy automático).
+4. Retomar backlog #8 (estrategia de gobierno) cuando el usuario lo indique.
